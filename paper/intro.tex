@@ -1,0 +1,30 @@
+\section{Introduction}
+
+Natural Language Processing (NLP) is a dynamic field within artificial intelligence that focuses on the interaction between computers and humans through natural language. 
+As demand for intelligent language-based applications continues to rise, NLP has evolved to use a wide array of techniques and algorithms, which enable machines to understand, interpret, and 
+generate human language effectively. Applications of NLP are vast, including machine translation, sentiment analysis, and conversational agents, all of which rely on accurately comprehending 
+human communication.
+
+Despite the advancements in NLP, sarcasm detection presents a particularly challenging problem. Sarcasm is inherently subtle and often requires a refined understanding beyond the literal 
+meanings of words. Sarcasm detection is different from sentiment analysis, and we would argue that it is a much harder task. Most of the times, sentiments and feelings are involuntary and caused 
+by external factors, which make it easier for models to understand what makes emotions to change. Sarcasm on the other hand, is always voluntary, and more often than not, it is not supposed to 
+be detected. The whole purpose of being sarcastic is to manifest your disagreement with an idea by agreeing to it. This complex nature makes sarcasm difficult to detect, not only for automated 
+systems but also for humans. While multi-modal communication (such as videos or audio) may leverage intonation and facial expressions to signal sarcasm, written text lacks these indicators, 
+making detection especially problematic.
+
+The significance of effective sarcasm detection is increasing in a digital landscape where interactions are predominantly text-based. Accurate identification of sarcastic comments is essential 
+for large language models (LLMs), to generate appropriate responses, such as humor or jokes, when sarcasm is detected. This capability is also crucial for businesses that analyze customer 
+feedback from online ratings and comments. Distinguishing between sarcastic and sincere remarks is vital for accurate performance assessment.
+
+Moreover, the rise of LLM usage among younger users, who are increasingly utilizing slang and sarcasm, increases the challenges of sarcasm detection. 
+Recent studies \cite{Juli_2024} have indicated that younger generations frequently employ informal language and sarcastic expressions, intentionally 
+or otherwise, which can confuse LLMs and lead to inaccuracies or hallucinations in generated responses.
+
+This paper addresses two fundamental research questions in the domain of natural language processing: First, we experiment how do different text representation methods, 
+specifically Bag-of-Words (BoW) and Term Frequency-Inverse Document Frequency (TF-IDF) influence the performance of traditional machine learning classifiers. 
+Second, we explore the impact of various word embeddings, particularly GloVe (Global Vectors for Word Representation) and Word2Vec, on the performance of Long Short-Term Memory (LSTM) 
+networks in detecting sarcasm. Both of these research directions are directed to provide more options and baseline benchmarks for future researchers that decide to tackle this subject.
+
+This research paper is structured as follows: the Related Work section reviews existing studies pertinent to our research. The Data section outlines the dataset, including data cleaning and 
+analysis processes. The Methodology section details the methods and settings employed in our study. The Results section presents the experiments conducted and compares the outcomes. 
+Finally, we conclude with a summary of our findings and their implications.
