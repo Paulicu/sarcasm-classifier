@@ -1,0 +1,31 @@
+\section{Related Work}
+
+In this section, I will present notable scientific literature that is relevant to my research questions. 
+The existing studies in this area can be broadly categorized into those emphasizing the importance of contextual information, 
+those utilizing multi-modal data, and those addressing the subject through various machine learning and deep learning techniques.
+
+The most important piece of literature for our research is the creation of the Self-Annotated Reddit Corpus (SARC) dataset \cite{SARC}, which we will detail further in the following section. 
+This work has become very important for sarcasm detection research due to its unprecedented scale and quality. The authors constructed SARC by leveraging Reddit's comment structure and its 
+standardized annotation for sarcasm. This approach allowed them to compile a dataset that not only surpasses prior sarcasm datasets in size but also provides rich contextual information for 
+each statement. To assess the quality of SARC, they conducted evaluations comparing it to existing datasets, focusing on accuracy and noise levels. They also established performance benchmarks 
+for sarcasm detection by testing baseline machine learning models and comparing their results to human performance. The purpose of this research was to create a publicly available dataset that 
+could serve as a foundation for future studies, and to provide baseline performance benchmarks that future researchers might build upon and improve.
+
+One notable study \cite{Sandor_2024} that utilized this dataset, implemented several machine learning models, as well as deep learning models based on bidirectional long short-term memory (BiLSTM) 
+networks and a model utilizing bidirectional encoder representations from transformers (BERT). The findings indicate that deep learning models, particularly the BERT-based model, outperformed 
+traditional machine learning approaches in detecting sarcasm. This suggests that models capable of capturing complex language patterns are more effective at interpreting sarcastic content. 
+The authors also discuss potential enhancements for sarcasm detection systems, particularly through various feature extraction techniques for vectorizing the data, which I explore in this paper.
+
+In another approach, \cite{Helal_2024} introduced a contextual-based method for sarcasm detection that emphasizes the importance of surrounding text and the broader context in which comments 
+are made. The authors employed pre-trained transformer models, specifically RoBERTa and DistilBERT and fine-tuned them on two datasets, one with textual data and another containing multi-modal 
+data (audio, video). By incorporating contextual information, their approach achieved notable F1 scores on both datasets. To enhance efficiency, they experimented with summarizing context into 
+concise sentences, which reduced training time considerably. This research proves that significance of context is quite high and yields strong performances on audio or video data. However, 
+text-based sarcasm still remains harder to deduce.
+
+Another significant research \cite{Das_2021} explores advanced methodologies for identifying sarcasm in textual data.
+Recognizing sarcasm's nuanced nature, which often intertwines humor and mockery, the researchers emphasize the importance of sophisticated models to accurately detect such expressions. 
+The authors introduce a novel approach that involves manually extracting sarcastic word distribution features from a benchmark pop culture sarcasm corpus, comprising both dialogues and monologues. 
+These features are transformed into weighted input sequences, which are then processed through an ensemble of four parallel deep Long Short-Term Memory (pLSTM) networks, each equipped with 
+distinct activation classifiers. For validation, the model was tested on two selected English humor literature pieces from Project Gutenberg. The results obtained surpass previous benchmarks in 
+sarcasm detection, setting a new standard for performance in this domain. The successful application of the pLSTM framework highlights its potential for broader use in sentiment analysis and 
+natural language processing tasks, especially those involving complex linguistic constructs like sarcasm.
