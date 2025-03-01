@@ -1,0 +1,33 @@
+\section{Methodology}
+
+In this section, I will detail the analysis methods used in my research, including model selection, parameter settings, and validation strategies.
+
+To begin, I conducted a train-test split on the dataset, where I divided the data into training and testing sets with a ratio of 80:20. 
+This split was chosen to ensure that there is a substantial amount of data for training the models while retaining a sufficient portion for testing their generalization capabilities. 
+An 80:20 split is a common practice in machine learning, providing a good balance between training performance and validation accuracy. By allocating 80\% of the data for training, 
+the models can be adequately trained capture the underlying patterns in the data. The remaining 20\% serves as an unbiased test set to evaluate the models performance on unseen data.
+
+\subsection{Machine Learning Methodology}
+
+To evaluate the models performances, I used a 5-fold cross-validation strategy using "StratifiedKFold", ensuring that each fold preserves the percentage of samples for each class. 
+This method enhances the reliability of performance estimates by mitigating the variance associated with a single train-test split. Cross-validation provides multiple performance 
+estimates, which gives a better understanding of how the models will perform in practice. The choice of 5 folds strikes a balance between bias and variance: while more folds can 
+provide better estimates, they also require more computational resources and can lead to longer training times. The metrics evaluated during cross-validation included accuracy, 
+F1 score, recall, and precision.
+
+For this part of the research, I experimented with two distinct text representation techniques: Term Frequency-Inverse Document Frequency (TF-IDF) and Bag of Words (BoW). 
+For the TF-IDF vectorization, I utilized the TfidfVectorizer, configuring it to extract n-grams ranging from unigrams to trigrams while limiting the maximum number of features to 50,000. 
+This configuration was chosen to capture both individual words and phrases that may convey sarcasm, allowing the model to leverage contextual information effectively. 
+Similarly, for the BoW representation, I used CountVectorizer with the same n-gram range and feature limit. Both representations enable the models to learn from the frequency of terms, 
+helping them identify patterns indicative of sarcasm.
+
+I tested four machine learning models: Logistic Regression and Ridge Classifier, each applied to both TF-IDF and BoW representations. The Logistic Regression model was configured with 
+a regularization parameter "C" set to 0.5 and L2 penalty, while the Ridge Classifier was set with an alpha parameter of 1.0. The choice of "C" was based on prior research indicating that 
+moderate regularization often yields better performance in text classification tasks by preventing overfitting. The L2 penalty further enhances model generalization by constraining the 
+coefficients. For the Ridge Classifier, the alpha parameter of 1.0 was selected to provide a strong regularization effect while still allowing the model to capture significant features 
+in the data, ensuring balanced performance.
+
+After evaluating the models, I calculated the mean and standard deviation of the metrics across the folds to provide an assessment of each model's performance. This approach not only 
+helps in identifying the best-performing model but also in understanding the stability and reliability of the results. Additionally, I generated confusion matrices to visualize each 
+model's classification results, which aids in understanding misclassifications and the distribution of true positives, false positives, true negatives, and false negatives. 
+The best model, according to mainly to accuracy or other metrics in case of an equality, will be trained on the full dataset.
