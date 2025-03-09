@@ -48,3 +48,42 @@ for the models are available in Figure \ref{Fig_4}.
     \caption{Confusion Matrices}
     \label{Fig_4}
 \end{figure}
+
+\subsection{Deep Learning Models Results}
+
+The LSTM model using GloVe embeddings achieved an accuracy of 71.02\% with an F1 score of 70.78\%. The performance indicates that the model effectively leverages the semantic information provided 
+by the GloVe vectors, although its performance is comparable to the traditional machine learning methods. I believe that the low performance is due to the Glove embeddings not being trained in 
+the specific context of social media, and also due to its low embedding dimensions. For future improvement, I would recommend using the glove embeddings trained specifically on Twitter data, which 
+may resemble the dataset a bit more. Also, if enough computational resources are present, increasing the number of embeddings might increase model performance.
+
+The LSTM model using Word2Vec embeddings outperformed its GloVe counterpart, reaching an accuracy of 72.64\% and an F1 score of 72.55\%. This suggests that Word2Vec embeddings better capture the 
+nuances required for sarcasm detection in the dataset. The improved performance metrics indicate that the Word2Vec-based model is more effective at discerning the subtle differences between sarcastic 
+and normal comments.
+
+The summary of these results are displayed in Table \ref{Table_2}.
+
+While this architecture is effective for large datasets, further improvements can enhance its performance. Adding a Bidirectional LSTM layer would allow the model to process the input sequence in both 
+forward and backward directions. This approach captures context from both sides, producing an output shape of (None, 128) by concatenating the outputs of both directions.
+
+Another potential enhancement is the inclusion of a GlobalMaxPooling1D Layer. This layer reduces the sequence dimension by retaining only the maximum value for each feature map, helping to highlight 
+the most prominent features while reducing computational complexity.
+
+Additional improvements include Batch Normalization, which normalizes layer activations to accelerate convergence and improve generalization, and increasing the number of LSTM units from 64 to 128. 
+Stacking multiple LSTM layers can further enhance the model's capacity to learn complex patterns, though it increases the risk of overfitting and training time.
+
+I explored all these architectures before deciding to the final layers, but because of the high training times and computational resource usage, I decided to stick with the simple architecture. 
+Most of my tests performed on these advanced layers were starting with low performance, but getting better in time. I believe that with enough computational power, the accuracy of the models can 
+easily go past 80\%.
+
+\begin{table}
+    \caption{LSTM Models Results}
+    \label{Table_2}
+    \begin{tabular}{ccccc}
+        \toprule
+            \textbf{Model} & \textbf{Accuracy (\%)} & \textbf{F1 Score (\%)} & \textbf{Recall (\%)} & \textbf{Precision (\%)} \\
+        \midrule
+            LSTM GloVe     & 71.02 & 70.78 & 71.02 & 71.74 \\
+            LSTM Word2Vec  & 72.64 & 72.55 & 72.64 & 72.94 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
